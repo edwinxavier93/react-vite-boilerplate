@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/dom";
 import { render } from "@testing-library/react";
-import ErrorBoundary from "../components/ErrorBoundary";
+import ErrorBoundary from "../src/components/ErrorBoundary";
 
 describe("ErrorBoundary", () => {
   it("should display fallback UI when a child component throws an error", () => {
