@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AboutPage from "./pages/AboutPage";
+import Form from "./pages/Form";
 import HomePage from "./pages/HomePage";
 
 const isAuthenticated = false;
@@ -9,6 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/form" element={<Form />} />
         <Route
           path="/about"
           element={

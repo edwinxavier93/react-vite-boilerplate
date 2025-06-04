@@ -5,6 +5,8 @@ import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { AppProvider } from "./store/AppContext.tsx";
 
+import "./carbon.scss";
+// import "@carbon/react/index.scss";
 import "./index.css";
 
 const queryClient = new QueryClient({
