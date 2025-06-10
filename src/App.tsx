@@ -1,18 +1,30 @@
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import AboutPage from "./pages/AboutPage";
-import HomePage from "./pages/HomePage";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
 
 const isAuthenticated = false;
+
+const SuspenseWrapper = ({ children }: { children: React.ReactNode }) => (
+  <Suspense fallback={<div>Loading...</div>}>
+    {children}
+  </Suspense>
+);
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={
+          <SuspenseWrapper><HomePage /></SuspenseWrapper>
+        } />
         <Route
           path="/about"
           element={
-            isAuthenticated ? <AboutPage /> : <Navigate to="/" replace={true} />
+            isAuthenticated ?
+              <SuspenseWrapper><AboutPage /></SuspenseWrapper> :
+              <Navigate to="/" replace={true} />
           }
         />
         <Route
