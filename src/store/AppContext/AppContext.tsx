@@ -1,38 +1,14 @@
-import React, {
+import {
   createContext,
   useContext,
   useReducer,
   type ReactNode,
 } from "react";
 
-type AppState = {
-  stateValue: string;
-};
-
-type AppAction = {
-  type: "SET_STATE";
-  payload: string;
-};
-
-type AppContextType = {
-  state: AppState;
-  dispatch: React.Dispatch<AppAction>;
-};
-
-const initialState: AppState = {
-  stateValue: "default value",
-};
+import { appReducer } from "./appReducer";
+import { initialState, type AppContextType } from "./appState";
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
-
-const appReducer = (state: AppState, action: AppAction): AppState => {
-  switch (action.type) {
-  case "SET_STATE":
-    return { ...state, stateValue: action.payload };
-  default:
-    throw new Error(`Unhandled action type: ${action.type}`);
-  }
-};
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);

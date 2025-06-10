@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useAppContext } from "../store/AppContext";
+import { useAppContext } from "../../store/AppContext/AppContext";
 
 const HomePage = () => {
   const { state, dispatch } = useAppContext();

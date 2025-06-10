@@ -3,9 +3,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary";
-import { AppProvider } from "./store/AppContext.tsx";
+import { AppProvider } from "./store/AppContext/AppContext.tsx";
 
-import "./index.css";
+import "./index.scss";
+import "./tailwind.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {
