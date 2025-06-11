@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../store/AppContext/AppContext";
 
@@ -11,7 +12,8 @@ const HomePage = () => {
         <p className="mt-4">
           The App context state value is: <b>{state.stateValue}</b>
         </p>
-        <button
+        <Button
+          type="primary"
           onClick={() =>
             dispatch({
               type: "SET_STATE",
@@ -20,12 +22,12 @@ const HomePage = () => {
           }
         >
           Update Context State
-        </button>
+        </Button>
       </div>
       <Link to="/about">
-        <button>
+        <Button>
           Go to About Page
-        </button>
+        </Button>
       </Link>
     </div>
   );
