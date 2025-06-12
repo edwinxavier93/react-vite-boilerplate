@@ -9,6 +9,15 @@ import { AppProvider } from "./store/AppContext/AppContext.tsx";
 import "./index.scss";
 import "./tailwind.css";
 
+const COLORS = {
+  PRIMARY: "#000",
+  SECONDARY: "#1C1B1B",
+  GREY: "#525252",
+  GREY_LIGHT: "#ffffff50",
+  WHITE: "#fff",
+  BORDER_LIGHT: "#2D2F39"
+}
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -25,12 +34,27 @@ createRoot(document.getElementById("root")!).render(
       <AppProvider>
         <ConfigProvider theme={{
           token: {
-            colorPrimary: '#000'
+            fontFamily: 'Inter, sans-serif',
+            colorPrimary: COLORS.PRIMARY,
+            colorSecondary: COLORS.SECONDARY,
+            textLight: COLORS.GREY_LIGHT,
+            textWhite: COLORS.WHITE,
+            borderLight: COLORS.BORDER_LIGHT
           },
           components: {
             Button: {
               borderRadius: 7,
-              primaryColor: '#FFF',
+              primaryColor: COLORS.WHITE,
+            },
+            Menu: {
+              itemColor: COLORS.GREY_LIGHT,
+              itemBg: COLORS.SECONDARY,
+              itemHoverColor: COLORS.WHITE,
+              itemHoverBg: COLORS.GREY,
+              itemSelectedColor: COLORS.WHITE,
+              itemSelectedBg: COLORS.GREY,
+              groupTitleColor: COLORS.WHITE,
+              groupTitleFontSize: "10px"
             }
           }
         }}>

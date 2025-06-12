@@ -1,0 +1,20 @@
+.side-menu {
+  .ant-menu {
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+
+    .ant-menu-item {
+      padding: 0 !important;
+      margin: 0;
+      margin-bottom: 12px !important;
+    }
+    .ant-menu-item-group {
+      .ant-menu-item-group-title {
+        padding: 0;
+        margin-bottom: 10px;
+        font-weight: 500;
+      }
+    }
+  }
+}
